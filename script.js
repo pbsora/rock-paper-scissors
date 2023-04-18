@@ -45,7 +45,8 @@ function playRound(computerSelection, playerSelection){
 
 for (let i = 0; i < 5; i++){
     let computerSelection = getComputerChoice()
-    let player = prompt("What will you play")
+    let player = prompt("What will you play").toLowerCase() 
     let playerSelection = player.charAt(0).toUpperCase() + player.slice(1)
     playRound(computerSelection, playerSelection)
+    
 }
