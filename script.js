@@ -1,5 +1,7 @@
 let pscore = 0
 let pcscore = 0
+let message = document.getElementById('message')
+
 
 
 let keepScore = (winner) => {
@@ -11,6 +13,15 @@ let keepScore = (winner) => {
         let pcScore = document.getElementById('pcScore')
         pcscore++
         pcScore.innerText = pcscore
+    }
+    if(pscore == 5){
+        message.innerText = 'You won the game'
+        alert('You won the game')
+        document.location.reload()
+    }else if(pcscore == 5){
+        message.innerText = 'The PC won the game'
+        alert('The PC won the game')
+        document.location.reload()
     }
 }
 
@@ -52,28 +63,30 @@ scissors.addEventListener('click', () => {
 })
 
 function playRound(computerSelection, playerSelection){
+
+    
     if(computerSelection == playerSelection){
-        console.log("Oof, that was a tie")
+        message.innerText = ("Oof, that was a tie")
     }   
     else if(playerSelection == "Rock" && computerSelection == "Scissors"){
-        alert(`You won, the computer used ${computerSelection}`)
+        message.innerText = (`You won, the computer used ${computerSelection}`)
         keepScore('player')
     }else if(playerSelection == "Scissors" && computerSelection == "Rock"){
-        alert(`Too bad, the computer used ${computerSelection}`)
+        message.innerText = (`Too bad, the computer used ${computerSelection}`)
         keepScore('pc')
     }
     else if(playerSelection == "Scissors" && computerSelection == "Paper"){
-        alert(`You won, the computer used ${computerSelection}`)
+        message.innerText = (`You won, the computer used ${computerSelection}`)
         keepScore('player')
     }else if(playerSelection == "Paper" && computerSelection == "Scissors"){
-        alert(`Too bad, the computer used ${computerSelection}`)
+        message.innerText = (`Too bad, the computer used ${computerSelection}`)
         keepScore('pc')
     }
     else if(playerSelection == "Paper" && computerSelection == "Rock"){
-        alert(`You won, the computer used ${computerSelection}`)
+        message.innerText = (`You won, the computer used ${computerSelection}`)
         keepScore('player')
     }else if(playerSelection == "Rock" && computerSelection == "Paper"){
-        alert(`Too bad, the computer used ${computerSelection}`)
+        message.innerText = (`Too bad, the computer used ${computerSelection}`)
         keepScore('pc')
     }
 }
